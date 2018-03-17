@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html>
+	<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+		
+	</head>
+  <body><br>
+	<div align="center" class="container" >	
+	<div class="panel panel-default">	
+		 <div class="panel-heading" style="background-color:skyblue;"><h1><center> Modulo d'Iscrizione</center></h1></div>
+		<br>
+	<div class="panel-body">
+		<center><form action="riepilogo.php" method="post" >
+      Cognome: <input type="text" name="Cog" value="">
+      <br><br>
+      Nome:  <input type="text" name="nome" value="">
+      <br><br>
+      Sesso:
+			<input type="radio" name="sesso" value="M"> Maschile
+		  <input type="radio" name="sesso" value="F"> Femminile
+      <br><br>
+      Nazionalita:<select name="nazione">
+			<option value="Italiana">Italiana</option>
+			<option value="Francese">Francese</option>
+			<option value="Inglese">Inglese</option>
+			<option value="Tedsesca" >Tedesca</option>
+      </select><br><br>
+      Patente: <input type="checkbox" name="patenteA" value="Cat A"> cat.A
+               <input type="checkbox" name="patenteB" value="Cat B"> cat.B
+      <br><br>
+      e-Mail:<input type="text" name="email">
+      <br><br>
+      Password:<input type="password" name="Pass">
+      <br><br></div>
+			<div class="panel-footer" style="background-color:skyblue;"><form action='index.html'>
+      <input type="submit" name="Inizio" value="Annulla">
+      <input type="submit" name="Inizio" value="Conferma">
+      </form></center>
+			</div> 
+	</div>	
+	</div>	
+	</body>
+</html>
