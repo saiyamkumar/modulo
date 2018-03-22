@@ -26,7 +26,7 @@ else if(isset( $_POST["patenteB"]))
    $pass = $_POST["Pass"];
    $bool=true;
     try{
-      $q = $dbh->prepare("SELECT Email FROM Module");
+      $q = $dbh->prepare("SELECT Email FROM module;");
       if($q->execute())
       {
         while($row = $q->fetch())
@@ -42,17 +42,8 @@ else if(isset( $_POST["patenteB"]))
     {
       echo $ex->getMessage();
     }
-  
-   echo "<p>"; echo $cognome;      echo"</p>"; 
-   echo "<p>"; echo $nome;         echo "</p>"; 
-   echo "<p>"; echo $nazionalita;  echo "</p>"; 
-   echo "<p>"; echo $sesso;        echo  "</p>"; 
-   echo "<p>"; echo $PAT;          echo "</p>"; 
-   echo "<p>"; echo $email;        echo "</p>"; 
-   echo "<p>"; echo $pass;         echo  "</p>";  
-
 try{
-$q = $dbh->prepare("INSERT INTO Module(Cognome, Nome, Sesso, Nazionalita, Patente, Email, Password) VALUES (:cognome, :nome, :sesso, :nazionalita, :PAT, :email, :Pass);");
+$q = $dbh->prepare("INSERT INTO module(Cognome, Nome, Sesso, Nazionalita, Patente, Email, Password) VALUES (:cognome, :nome, :sesso, :nazionalita, :PAT, :email, :Pass);");
 $q->bindValue(':cognome', $cognome, PDO::PARAM_STR);
 $q->bindValue(':nome', $nome, PDO::PARAM_STR);
 $q->bindValue(':sesso', $sesso, PDO::PARAM_STR);
@@ -64,7 +55,35 @@ $q->execute();
 }catch(PDOException $ex){
   echo" Dati non inseriti".$ex->getMessage();
 }
-echo "<form action='esito.html' method='post'>
+?>
+<!DOCTYPE>
+<html>
+	<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+		
+	</head>
+  <body><br>
+	<div align="center" class="container" >	
+	<div class="panel panel-default">	
+		 <div class="panel-heading" style="background-color:orange;"><h1><center> Riepilogo Dati </center></h1></div>
+		<br>
+	<div class="panel-body">
+		<center>  
+   <?php
+       echo "<p> Cognome: ";       echo $cognome;      echo"</p>"; 
+       echo "<p>Nome: ";           echo $nome;         echo "</p>"; 
+       echo "<p>Nazionalità: ";    echo $nazionalita;  echo "</p>"; 
+       echo "<p>Sesso: ";          echo $sesso;        echo  "</p>"; 
+       echo "<p>Cat. Patente: ";   echo $PAT;          echo "</p>"; 
+       echo "<p> E-mail: ";        echo $email;        echo "</p>"; 
+       echo "<p>Password: ";       echo $pass;         echo  "</p>"; 
+    ?>
+ </center></div><div class="panel-footer" style="background-color:orange;">
+      <form action='esito.html' method='post'>
 <input id='Annulla'type='button' value='Annulla'/>
 <input id='Conferma' type='submit' value='Conferma'/>
 </form>
@@ -72,5 +91,9 @@ echo "<form action='esito.html' method='post'>
 document.getElementById('Annulla').onclick = function () {
   location.href = 'index.html';
 }
-</script>";
-?>
+      </script></form></center>
+			</div> 
+    </div>	
+	</div>	
+	</body>
+</html>

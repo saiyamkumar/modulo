@@ -6,7 +6,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
-		
+	<script language = "javascript" type = "text/javascript">
+		function fun()
+		{
+			var x = document.getElementsByClassName("gender");
+			if(x[0].checked == false && x[1].checked == false)
+				{
+					alert.("inserire il propio genere!");
+					return false;
+				}
+			return true;
+		}
+	</script>
 	</head>
   <body><br>
 	<div align="center" class="container" >	
@@ -14,16 +25,16 @@
 		 <div class="panel-heading" style="background-color:skyblue;"><h1><center> Modulo d'Iscrizione</center></h1></div>
 		<br>
 	<div class="panel-body">
-		<center><form action="riepilogo.php" method="post" >
-      Cognome: <input type="text" name="Cog" value="">
+		<center><form action="riepilogo.php" method="post" onsubmit = "return fun()">
+      Cognome: <input type="text" name="Cog" value="" required>
       <br><br>
-      Nome:  <input type="text" name="nome" value="">
+      Nome:  <input type="text" name="nome" value="" required>
       <br><br>
       Sesso:
-			<input type="radio" name="sesso" value="M"> Maschile
-		  <input type="radio" name="sesso" value="F"> Femminile
+			<input class = "gender" type="radio" name="sesso" value="M"> Maschile
+		  <input class = "gender" type="radio" name="sesso" value="F"> Femminile
       <br><br>
-      Nazionalita:<select name="nazione">
+      Nazionalita:<select name="nazione" required>
 			<option value="Italiana">Italiana</option>
 			<option value="Francese">Francese</option>
 			<option value="Inglese">Inglese</option>
@@ -32,12 +43,12 @@
       Patente: <input type="checkbox" name="patenteA" value="Cat A"> cat.A
                <input type="checkbox" name="patenteB" value="Cat B"> cat.B
       <br><br>
-      e-Mail:<input type="text" name="email">
+      E-mail:<input type="Email" name="email" required>
       <br><br>
-      Password:<input type="password" name="Pass">
+      Password:<input type="password" name="Pass" required>
       <br><br></div>
 			<div class="panel-footer" style="background-color:skyblue;"><form action='index.html'>
-      <input type="submit" name="Inizio" value="Annulla">
+      <input type="button" name="Inizio" value="Annulla">
       <input type="submit" name="Inizio" value="Conferma">
       </form></center>
 			</div> 

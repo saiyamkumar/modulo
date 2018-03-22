@@ -1,5 +1,5 @@
 <?php
-$nomehost = "mysql:host=localhost;dbname=modulo";   
+$nomehost = "mysql:host=localhost;dbname=Modulo";   
 $nomeuser = "root";
 $PASSWORD = "indi1";
 try{
