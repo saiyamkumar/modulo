@@ -5,6 +5,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+	<script language = "javascript" type = "text/javascript">
+		function fun()
+		{
+			var x = document.getElementsByClassName("gender");
+			if(x[0].checked == false && x[1].checked == false)
+				{
+					alert.("inserire il propio genere!");
+					return false;
+				}
+			return true;
+		}
+	</script>
 </head>
 
 <body>
@@ -16,24 +28,24 @@
 <div class="panel-body">
 	<a align="right" href="registrazione_autista.html">Se vuoi diventare un autista</a>
 	
-<form action="inserimento.php" method="post">
+<form action="inserimentoPasseggero.php" method="post">
   
-Cognome: <input type="text" name="" value="">
+Cognome: <input type="text" name="Cog" value="">
   <br><br>
-Nome: <input type="text" name="" value="">
+Nome: <input type="text" name="Nome" value="">
   <br><br>
-Username: <input type="text" name="" value="">
+Username: <input type="text" name="User" value="">
 	<br><br>
-E-mail: <input type="text" name="" value="">
+E-mail: <input type="text" name="email" value="">
 	<br><br>
-Password: <input type="text" name="" value="">
+Password: <input type="password" name="pass" value="">
 	<br><br>
-Telefono: <input type="text" name="" value="">
+Telefono: <input type="text" name="tel" value="">
 	<br><br>
-Data di Nascita: <input type="text" name="" value="">
+Data di Nascita: <input type="date" name="data" value="">
 	<br><br>
-Sesso: Femminile: <input type="radio" name="" value="F">
-       Maschile: <input type="radio" name="" value="M">
+Sesso: Femminile: <input type="radio" name= "sesso" value="F">
+       Maschile: <input  type="radio" name= "sesso" value="M">
 	<br><br>
 Nazionalita: <select name="nazione">
   <option value="Italiana"> Italiana</option>
