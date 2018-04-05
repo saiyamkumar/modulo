@@ -5,6 +5,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+		<script language = "javascript" type = "text/javascript">	
+	function fun()
+		{
+			var x = document.getElementsByClassName("gender");
+			if(x[0].checked == false && x[1].checked == false)
+				{
+					alert.("inserire il propio genere!");
+					return false;
+				}
+			return true;
+		}
+	</script>
 </head>
 
 <body>
@@ -12,29 +24,29 @@
 	<div class="panel panel-default">	
      <div class="panel-heading" style="background-color:skyblue;"><center><h1>Modulo Autista</h1></center></div>
 <div class="panel-body">
-	<a align="right" href="registrazione_passeggero.html">Se vuoi diventare un passeggero</a>
-<form action="inserimento.php" method="post">
+	<a align="right" href="registrazione_passeggero.html">Se vuoi diventare un passeggero</a><br><br>
+<form action="inserimentoautista.php" method="post">
   
-Cognome: <input type="text" name="" value="">
+Cognome: <input type="text" name="C" value="">
   <br><br>
-Nome: <input type="text" name="" value="">
+Nome: <input type="text" name="N" value="">
   <br><br>
-Nickname : <input type="text" name="" value="">
+Nickname : <input type="text" name="nic" value="">
   <br><br>
-E-mail: <input type="text" name="" value="">
+E-mail: <input type="text" name="EM" value="">
   <br><br>
-Password: <input type="text" name="" value="">
+Password: <input type="password" name="P" value="">
   <br><br>
-Telefono: <input type="text" name="" value="">
+Telefono: <input type="text" name="T" value="">
   <br><br>
-Data di Nascita: <input type="text" name="" value="">
+Data di Nascita: <input type="date" name="D" value="">
   <br><br>
-Sesso: Femminile: <input type="radio" name="" value="F">
-       Maschile: <input type="radio" name="" value="M">
+Sesso: Femminile: <input type="radio" name="sex" value="F">
+       Maschile: <input type="radio" name="sex" value="M">
   <br><br>
-Numero Patente: <input type="text" name="" value="">
+Numero Patente: <input type="text" name="NP" value="">
   <br><br>
-Scadenza Patente:<input type="text" name="" value="">
+Scadenza Patente:<input type="date" name="SP" value="">
   <br><br>
 Nazionalita: <select name="nazione">
   <option value="Italiana"> Italiana</option>
@@ -42,10 +54,10 @@ Nazionalita: <select name="nazione">
   <option value="Tedesca">Tedesca</option>
   <option value="Inglese">Inglese</option>
   </select> 
-</form>
+
 </div>
 <div class="panel-footer" style="background-color:skyblue;">
-   <input type="submit" name="Inizio" value="Conferma">
+   <input type="submit" name="Inizio" value="Conferma"></form>
 </div>
 </div>
 </div>

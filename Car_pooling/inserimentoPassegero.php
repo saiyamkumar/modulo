@@ -28,17 +28,16 @@ include 'include.php';
       echo $ex->getMessage();
     }
     try{
-  echo $cognome ;
-      echo"<br>";
-  echo $nome ;   echo"<br>";
-  echo $sesso ;echo"<br>";
+  echo $cognome ; echo"<br>";
+  echo $nome ;    echo"<br>";
+  echo $sesso ;   echo"<br>";
   echo $nazionalita; echo"<br>";
   echo $email ;   echo"<br>";
-  echo $pass ;echo"<br>";
-  echo $Tel;echo"<br>";
-  echo $data;echo"<br>";
+  echo $pass ;    echo"<br>";
+  echo $Tel;      echo"<br>";
+  echo $data;     echo"<br>";
       
-$q = $dbh->prepare("INSERT INTO passeggeri(cognome, nome, email, password, telefono, data_nascita, sesso, nazionalita)VALUES(:cognome, :nome, :email, :password, :Tel, :data, :sesso, :nazionalita);");
+$q = $dbh->prepare("INSERT INTO passeggeri(cognome, nome, email, password, telefono, data_nascita, sesso, nazionalita)VALUES(:cognome, :nome, :email, MD5(:password), :Tel, :data, :sesso, :nazionalita);");
 $q->bindValue(':cognome', $cognome, PDO::PARAM_STR);
 $q->bindValue(':nome', $nome, PDO::PARAM_STR);
 $q->bindValue(':email', $email, PDO::PARAM_STR);
