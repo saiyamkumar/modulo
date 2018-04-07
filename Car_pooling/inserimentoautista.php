@@ -15,7 +15,7 @@ $nazionalita=$_POST["nazione"];
 $bool=true;
 
  try{
-      $q = $dbh->prepare("SELECT Email FROM autisti;");
+      $q = $dbh->prepare("SELECT email FROM autisti;");
       if($q->execute())
       {
         while($row = $q->fetch())
@@ -57,6 +57,7 @@ $q->bindValue(':Scad_pat', $Scad_pat, PDO::PARAM_STR);
 $q->bindValue(':nazionalita', $nazionalita, PDO::PARAM_STR);
 $q->execute();
 echo " I dati sono stati salvati correttamente ";
+      header('location:registrazione_autista.html');
 }catch(PDOException $ex){
   echo" Dati non inseriti".$ex->getMessage();
 }  

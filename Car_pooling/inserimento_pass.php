@@ -10,8 +10,9 @@ include 'include.php';
    $Tel=$_POST["tel"];
    $data=$_POST["data"];
    $bool=true;
-   try{
-      $q = $dbh->prepare("SELECT Email FROM passeggeri;");
+
+  try{
+      $q = $dbh->prepare("SELECT email FROM passeggeri;");
       if($q->execute())
       {
         while($row = $q->fetch())
@@ -48,6 +49,7 @@ $q->bindValue(':sesso', $sesso, PDO::PARAM_STR);
 $q->bindValue(':nazionalita', $nazionalita, PDO::PARAM_STR);
 $q->execute();
 echo " I dati sono stati salvati correttamente ";
+      header('location:registrazione_passeggero.html');
 }catch(PDOException $ex){
   echo" Dati non inseriti".$ex->getMessage();
 }
