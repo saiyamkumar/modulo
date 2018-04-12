@@ -15,7 +15,7 @@ include 'include.php';
           $q->bindValue(':Potenza', $potenza, PDO::PARAM_STR);
           $q->execute();
           echo " I dati sono stati salvati correttamente ";
-          header('location:auto.html')
+          header('location:auto.html');
       }catch(PDOException $ex){
           echo" Dati non inseriti".$ex->getMessage();
 }
