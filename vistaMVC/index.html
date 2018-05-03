@@ -12,13 +12,19 @@
       $( document ).ready(function() {
          $("#btn").click(function(){
           
-             $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Firenze&APPID=cbb66fca5bfbd660a53e23ad1f70180d", function(dati);{
-                  
-        })        
-         })
+             $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Firenze&APPID=cbb66fca5bfbd660a53e23ad1f70180d", function(dati){
+ 
+               $("#main").append( dati.weather[0].main + " <br> "); 
+               $("#desc").append( dati.weather[0].description + " <br> "); 
+               $("#temp").append( + dati.main.temp + " <br> "); 
+               $("#pressure").append( dati.main.pressure + " <br> "); 
+               $("#humidity").append( dati.main.humidity + " <br> ");
+               $("#speed").append( dati.wind.speed + " <br> ");
+               $("#degree").append( dati.wind.deg + " <br> "); 
+               $("#visibility").append( dati.visibility.value + " <br> ");
+           });
+        }); 
       });
-      
-    
     </script>
   <style>
 table {
@@ -52,9 +58,6 @@ tr:nth-child(even) {
       width:35%;
      float:center;
     }
-    #c{
-      
-    }
 </style>
   
   </head>
@@ -79,6 +82,7 @@ tr:nth-child(even) {
     </div>
     </div>
     
+    
  <div align="center" class="container" id="div2">	
 	<div class="panel panel-default">	
      <div class="panel-heading" style="background-color:skyblue;"><h3 style="color : blue; ">
@@ -86,6 +90,44 @@ tr:nth-child(even) {
     <div class="panel-body">	
         <form action="controller.php" method="post">  
           Nome città : <input type='text'>
+          
+          <table id="tab1" align="center">
+            <tr>
+            <td>Main: </td>
+            <td id="main"></td>
+            </tr>
+            
+            <tr>
+            <td>Description: </td>
+            <td id="desc"></td>
+            </tr>
+            <tr>
+            <td>Temp: </td>
+            <td id="temp"></td>
+            </tr>
+            <tr>
+            <td>Pressure: </td>
+            <td id="pressure"></td>
+            </tr>
+            <tr>
+            <td>Humidity: </td>
+            <td id="humidity"></td>
+            </tr>
+            <tr>
+            <td>Wind Speed: </td>
+            <td id="speed"></td>
+            </tr>
+            <tr>
+            <td>Wind Degree: </td>
+            <td id="degree"></td>
+            </tr>
+            <tr>
+            <td>Visibility: </td>
+            <td id="visibility"></td>
+            </tr>
+           
+            </table>
+   
         </div>
         <div class="panel-footer" style="background-color:skyblue;">
        <button  type="button" class="btn btn-default btn-sm">
