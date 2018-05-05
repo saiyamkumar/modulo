@@ -10,18 +10,16 @@
     <script language="javascript" type="text/javascript">
     
       $( document ).ready(function() {
-         $("#btn").click(function(){
-          
+         $("#btn").click(function(){         
              $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Firenze&APPID=cbb66fca5bfbd660a53e23ad1f70180d", function(dati){
- 
-               $("#main").append( dati.weather[0].main + " <br> "); 
-               $("#desc").append( dati.weather[0].description + " <br> "); 
-               $("#temp").append( + dati.main.temp + " <br> "); 
-               $("#pressure").append( dati.main.pressure + " <br> "); 
-               $("#humidity").append( dati.main.humidity + " <br> ");
-               $("#speed").append( dati.wind.speed + " <br> ");
-               $("#degree").append( dati.wind.deg + " <br> "); 
-               $("#visibility").append( dati.visibility.value + " <br> ");
+               $("#main").append( dati.weather[0].main + "<br>"); 
+               $("#desc").append( dati.weather[0].description + "<br>"); 
+               $("#temp").append( + dati.main.temp + "<br>"); 
+               $("#pressure").append( dati.main.pressure + "<br>"); 
+               $("#humidity").append( dati.main.humidity + "<br>");
+               $("#speed").append( dati.wind.speed + "<br>");
+               $("#degree").append( dati.wind.deg + "<br>"); 
+               $("#visibility").append( dati.visibility.value + "<br>");
            });
         }); 
       });
