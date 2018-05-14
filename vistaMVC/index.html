@@ -1,5 +1,4 @@
-<html>
-  
+<html> 
   <head>
      <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -10,10 +9,11 @@
     <script language="javascript" type="text/javascript">
     
       $( document ).ready(function() { 
-            var da =  new date();
-             da.ToUTCString();
-             $("#testa").append(da);
            
+            var d = new Date();
+            d.toUTCString();
+             $("#testa").append(d);
+
          $("#btn").click(function(){   
             
                $("#main").empty(); 
@@ -34,40 +34,57 @@
                $("#humidity").append(dati.main.humidity + "<br>");
                $("#speed").append(dati.wind.speed + "<br>");
                $("#degree").append(dati.wind.deg + "<br>"); 
-               $("#visibility").append(dati.visibility.value + "<br>");
-               
+               $("#visibility").append(dati.visibility.value + "<br>");               
            });
         });   
         
-         $("#btn2").click(function(){ 
-               $("#main1").empty(); 
-               $("#desc1").empty(); 
-               $("#temp1").empty(); 
-               $("#pressure1").empty(); 
-               $("#humidity1").empty();
-               $("#speed1").empty();
-               $("#degree1").empty(); 
-
-             $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q="+document.getElementById("citta1").value+"&APPID=cbb66fca5bfbd660a53e23ad1f70180d", function(dati1){
+        $("#btn2").click(function(){ 
+          
+              $("#sel").show();
+              $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q="+document.getElementById("citta1").value+"&APPID=cbb66fca5bfbd660a53e23ad1f70180d", function(dati1){
               
-               $("#main1").append( dati.weather[0].main + "<br>"); 
-               $("#desc1").append( dati.weather[0].description + "<br>"); 
-               $("#temp1").append( + dati.main.temp + "<br>"); 
-               $("#pressure1").append(dati.main.pressure + "<br>"); 
-               $("#humidity1").append(dati.main.humidity + "<br>");
-               $("#speed1").append(dati.wind.speed + "<br>");
-               $("#degree1").append(dati.wind.deg + "<br>");  
-             });          
-         });
-      });
-     
+                           
+             for(var i=0;i<40;i++){
+               $("#sel").append("<option>"+dati1.list[i].dt_txt+"</option>");
+             }
+              });
+              });  
+        
+               $("#sel").change(function(){
+
+                   $("#main1").empty(); 
+                   $("#desc1").empty(); 
+                   $("#temp1").empty(); 
+                   $("#pressure1").empty(); 
+                   $("#humidity1").empty();
+                   $("#speed1").empty();
+                   $("#degree1").empty(); 
+                   $("#visibility1").empty();
+
+                 $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q="+document.getElementById("citta1").value+"&APPID=cbb66fca5bfbd660a53e23ad1f70180d", function(dati1){
+                 
+                 for(var i=0; i<40; i++){
+                   if(dati1.list[i].dt_txt == document.getElementById("sel").value){
+                
+                     $("#main1").append( dati1.list[i].weather[0].main + "<br>"); 
+                     $("#desc1").append( dati1.list[i].weather[0].description + "<br>"); 
+                     $("#temp1").append( dati1.list[i].main.temp + "<br>"); 
+                     $("#pressure1").append(dati1.list[i].main.pressure + "<br>"); 
+                     $("#humidity1").append(dati1.list[i].main.humidity + "<br>");
+                     $("#speed1").append(dati1.list[i].wind.speed + "<br>");
+                     $("#degree1").append(dati1.list[i].wind.deg + "<br>");  
+                         }
+                     }
+                  });
+              });
+      });     
     </script>
   <style>
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 40%;
-    float:right;
+    float:center;
     padding:5px,5px,5px,5px;
 }
 
@@ -83,13 +100,13 @@ tr:nth-child(even) {
     #div1{
      width:45%;
      float:left;
-     padding-left:7%;
+     padding-left:5%;
 
     }
      #div2{
       width:45%;
      float:right;
-     padding-right:7%;  
+     padding-right:5%;  
     
     }
     #div3{
@@ -109,7 +126,7 @@ tr:nth-child(even) {
     <div class="panel-body">	
         <form action="" method="post">  
           Nome città : <input id="citta" type='text'>
-
+          <br><br>
           <table id="tab1" align="center">
             <tr>
             <td>Main: </td>
@@ -156,17 +173,17 @@ tr:nth-child(even) {
         </div>
     </div>
     </div>
-   
-    
-    
+  
  <div align="center" class="container" id="div2">	
 	<div class="panel panel-default">	
      <div class="panel-heading" style="background-color:skyblue;"><h3 style="color : blue; ">
             Forecast </h3></div>
     <div class="panel-body">	
         <form action="" method="post">  
-          Nome città : <input id="citta1" type='text'>
-       
+          Nome città :
+          <input id="citta1" type='text'>
+           <select align="left" id="sel" hidden></select>
+          <br><br>
           <table id="tab1" align="center">
             <tr>
             <td>Main: </td>
@@ -209,56 +226,5 @@ tr:nth-child(even) {
     </div>
     </div>
     </div>
-     
-
-    <!--
-    <div class="panel panel-danger" id="div3">
-      <div class="panel-heading">Panel with panel-danger class</div>
-      <div class="panel-body">Panel Content</div>
-    </div>
-  </div> --!>
-</html>
- <!--   
-
-
-http://api.openweathermap.org/data/2.5/weather?q=Firenze&APPID=cbb66fca5bfbd660a53e23ad1f70180d
-<table >
-  <tr>
-    <th>Company</th>
-    <th>Contact</th>    
-  </tr>
-  <tr>
-    <td>main</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>description</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>temp</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>pressure</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>humidity</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>wind speed</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>wind deg</td>
-    <td></td>  
-  </tr>
-  <tr>
-    <td>visibility</td>
-    <td></td>
-  </tr>
-</table> --!> 
   </body> 
 </html>
