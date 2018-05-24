@@ -7,66 +7,78 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
     <script language = "javascript" type = "text/javascript " src="file.js"></script>
-   <head></head>
+   <head>
+    
+    <style>
+     table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+     
+     
+     </style>
+    </head>
   <body>
     <br>
-	<div align="center" class="container" >	
+    <div align="center" class="container" id="div2">	
 	<div class="panel panel-default">	
-		 <div class="panel-heading" style="background-color:skyblue;"><h1><center>Cinema</center></h1></div>
-		<br>
-	<div class="panel-body">
-		<center>
-			<a align="left" href="admin.html">Portale Admin</a>
-			
-          
-        <form action="" method="post">  
-          Film: <input id="film" type='text'>
+     <div class="panel-heading" style="background-color:skyblue;"><h1 style="color : black; ">
+            Cinema </h1></div>
+    <div class="panel-body">
+      <a align="left" href="admin.html">Portale Admin</a>
+			<br><br> 
+      <p>
+            • Elenco dei film<br>
+            • Dettagli di un film selezionato da elenco o ricercato in base a criteri (nome, anno, genere...): nel
+            dettaglio del film dovranno comparire gli interpreti<br>
+            • Elenco dei cinema
+            • Dettagli di un cinema selezionato da elenco o ricercato in base a criteri (nome, città...)<br>
+            • Elenco delle programmazioni<br>
+            • Dettagli di una programmazione selezionata da elenco o ricercato in base a criteri (città, data,
+            titolo...)
+          </p>
+      <br><h3>
+        Elenco Film:
+      </h3>
+        <form action="ModAgg.php" method="post">  
+          Film :
+          <input id="Film1" type='text'>
+           <select align="left" id="sel" hidden></select>
           <br><br>
-          <table id="tab1" align="center">
+          <table  align="center">
             <tr>
-            <td>Main: </td>
-            <td id="main"></td>
-            </tr>   
+            <td>Film: </td>
+            <td id="Film" name="Film"></td>
+            </tr>
             <tr>
             <td>Description: </td>
-            <td id="desc"></td>
+            <td id="desc1"></td>
             </tr>
-            <tr>
-            <td>Temp: </td>
-            <td id="temp"></td>
-            </tr>
-            <tr>
-            <td>Pressure: </td>
-            <td id="pressure"></td>
-            </tr>
-            <tr>
-            <td>Humidity: </td>
-            <td id="humidity"></td>
-            </tr>
-            <tr>
-            <td>Wind Speed: </td>
-            <td id="speed"></td>
-            </tr>
-            <tr>
-            <td>Wind Degree: </td>
-            <td id="degree"></td>
-            </tr>
-            <tr>
-            <td>Visibility: </td>
-            <td id="visibility"></td>
-            </tr>
-            </table> 
-         </form>
-    </center>
-    	<div class="panel-footer" style="background-color:skyblue;">
-        <button  type="button"  id="btn" class="btn btn-default btn-sm">
+         </table>
+        </div>
+        <div class="panel-footer" style="background-color:skyblue;">
+       <button  type="button"  id="btn" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-search"></span>
         </button>
           <button  type="reset" id="btn1" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-remove"></span>
-	    </div>	
-  	</div>	
-  </div>  
+        </button>
+         </form>
     </div>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 	</body>
 </html>
