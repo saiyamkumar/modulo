@@ -35,24 +35,21 @@
             • Elenco delle programmazioni<br>
             • Dettagli di una programmazione selezionata da elenco o ricercato in base a criteri (città, data,
             titolo...)
-          </p>
-      <br><h3>
+        
+        
+        FROM Attore
+INNER JOIN Interpreta ON Attore.idAttore = Interpreta.idAttore
+INNER JOIN Cinema ON Interpreta.idCinema = Cinema.idCinema
+INNER JOIN Programmato ON Cinema.idCinema = Programmato.idCinema
+INNER JOIN Film ON Programmato.idFilm = Film.idFilm
+          </p>     
         Elenco Film:
       </h3>
         <form action="ModAgg.php" method="post">  
           Film :
-          <input id="Film1" type='text'>
-           <select align="left" id="sel" hidden></select>
-          <br><br>
-          <table  align="center">
-            <tr>
-            <td>Film: </td>
-            <td id="Film" name="Film"></td>
-            </tr>
-            <tr>
-            <td>Description: </td>
-            <td id="desc1"></td>
-            </tr>
+          <input id="Film1" type='text'>           
+          <br>
+          <table id="Tab" align="center">            
          </table>
         </div>
         <div class="panel-footer" style="background-color:skyblue;">
